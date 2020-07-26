@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: RelicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+spec:
+  selector:
+    matchlabels:
+      app: myapp
+  replicas: 3
+  template:
+    metadata:
+      name: myapp
+      labels:
+        app: production
+    spec:
+      containers:
+        - name: nginxapp
+          image: nginx
+
